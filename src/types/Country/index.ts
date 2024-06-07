@@ -1,20 +1,20 @@
 import type { CREATE_UPDATE, ORDER_BY } from "..";
 import type { IPaginator } from "../paginator.interface";
 
-interface ICountry {
+interface ICountryCreate {
     nameEn: string;
     nameKh: string;
 }
 
-interface IQueryCountry extends Partial<IPaginator> {
+interface ICountryQuery extends Partial<IPaginator> {
     keyword?: string;
-    sortBy?: CREATE_UPDATE | keyof ICountry
+    sortBy?: CREATE_UPDATE | keyof ICountryCreate
     orderBy?: ORDER_BY;
 }
 
-interface ICountryDetail extends ICountry {
+interface ICountry extends ICountryCreate {
     id: string;
     slug: string;
 }
 
-export type { ICountry, IQueryCountry, ICountryDetail };
+export type { ICountryCreate, ICountryQuery, ICountry };

@@ -1,8 +1,8 @@
 import type { IApiResp, IRespPaginate } from "~/types/apiResp.interface";
-import type { ICountry, ICountryDetail, IQueryCountry } from "~/types/Country";
+import type { ICountry, ICountryCreate, ICountryQuery } from "~/types/Country";
 
 export default () => {
-    const create = async (country: ICountry): Promise<IApiResp<ICountry>> => {
+    const create = async (country: ICountryCreate): Promise<IApiResp<ICountry>> => {
         return await useClientFetch<IApiResp<ICountry>>("/country", {
             method: "POST",
             body: country,
@@ -12,7 +12,7 @@ export default () => {
         });
     }
 
-    const update = async (id: string, country: Partial<ICountry>): Promise<IApiResp<ICountry>> => {
+    const update = async (id: string, country: Partial<ICountryCreate>): Promise<IApiResp<ICountry>> => {
         return await useClientFetch<IApiResp<ICountry>>(`/country/${id}`, {
             method: "PATCH",
             body: country,
@@ -22,8 +22,8 @@ export default () => {
         });
     }
 
-    const getAll = async (query: IQueryCountry): Promise<IRespPaginate<ICountryDetail>> => {
-        return await useClientFetch<IRespPaginate<ICountryDetail>>("/country", {
+    const getAll = async (query: ICountryQuery): Promise<IRespPaginate<ICountry>> => {
+        return await useClientFetch<IRespPaginate<ICountry>>("/country", {
             method: "GET",
             query
         }).catch((error: any) => {
@@ -32,8 +32,8 @@ export default () => {
         });
     }
 
-    const getById = async (id: string): Promise<IApiResp<ICountryDetail>> => {
-        return await useClientFetch<IApiResp<ICountryDetail>>(`/country/${id}`, {
+    const getById = async (id: string): Promise<IApiResp<ICountry>> => {
+        return await useClientFetch<IApiResp<ICountry>>(`/country/${id}`, {
             method: "GET",
         }).catch((error: any) => {
             console.log(error);
@@ -41,8 +41,8 @@ export default () => {
         });
     }
 
-    const getBySlug = async (slug: string): Promise<IApiResp<ICountryDetail>> => {
-        return await useClientFetch<IApiResp<ICountryDetail>>(`/country/slug/${slug}`, {
+    const getBySlug = async (slug: string): Promise<IApiResp<ICountry>> => {
+        return await useClientFetch<IApiResp<ICountry>>(`/country/slug/${slug}`, {
             method: "GET",
         }).catch((error: any) => {
             console.log(error);
