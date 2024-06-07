@@ -10,6 +10,11 @@ const loading = ref<boolean>(false);
 const router = useRouter();
 const route = useRoute();
 
+// Emits
+const emits = defineEmits<{
+    (event: 'toggleMenu'): boolean,
+}>();
+
 const handleLogout = async () => {
     loading.value = true;
     const resp = await logout();
@@ -38,7 +43,7 @@ const castItem = (item: any): CastIemType => {
     <div class="flex justify-between items-center border rounded p-4">
         <div class="flex items-center gap-10">
             <!-- Menu Icon -->
-            <UIButton variant="outline" size="icon">
+            <UIButton variant="outline" size="icon" @click="emits('toggleMenu')">
                 <AlignLeft />
             </UIButton>
 
