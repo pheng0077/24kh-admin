@@ -28,7 +28,8 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
     '@morev/vue-transitions/nuxt',
-    "@nuxt/image"
+    "@nuxt/image",
+    '@vueuse/nuxt',
   ],
 
   image: {
