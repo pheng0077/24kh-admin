@@ -16,6 +16,7 @@
     "@morev/vue-transitions": "^3.0.2",
     "@nuxt/image": "^1.7.0",
     "@pinia/nuxt": "^0.5.1",
+    "@tanstack/vue-table": "^8.17.3",
     "@unovis/ts": "^1.4.1",
     "@unovis/vue": "^1.4.1",
     "@vee-validate/zod": "^4.12.8",
